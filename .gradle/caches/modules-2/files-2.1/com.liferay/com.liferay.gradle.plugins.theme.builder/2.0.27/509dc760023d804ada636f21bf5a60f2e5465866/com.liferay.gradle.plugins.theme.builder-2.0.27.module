@@ -1,0 +1,78 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.liferay",
+    "module": "com.liferay.gradle.plugins.theme.builder",
+    "version": "2.0.27",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.5"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "com.liferay",
+          "module": "com.liferay.gradle.plugins.css.builder",
+          "version": {
+            "requires": "5.0.14"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "com.liferay.gradle.plugins.theme.builder-2.0.27.jar",
+          "url": "com.liferay.gradle.plugins.theme.builder-2.0.27.jar",
+          "size": 20729,
+          "sha512": "edab3b113dd9be058df0695c5fbbacb6167cba6e50806e57c92091d2f57a026d548ea2a2a564dfb26eab8bd351f7492a7921fbb87d82fc87ba010ca23cfb336a",
+          "sha256": "10cb36289f887a6f9622bd3777c1adba260865df0331c85373eafc061d37f10e",
+          "sha1": "bef06224e0932356ebd4ac7634079f89d60e05f4",
+          "md5": "015cc8c1c9728ccb0938aa20474f0fe6"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.liferay",
+          "module": "com.liferay.gradle.plugins.css.builder",
+          "version": {
+            "requires": "5.0.14"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "com.liferay.gradle.plugins.theme.builder-2.0.27.jar",
+          "url": "com.liferay.gradle.plugins.theme.builder-2.0.27.jar",
+          "size": 20729,
+          "sha512": "edab3b113dd9be058df0695c5fbbacb6167cba6e50806e57c92091d2f57a026d548ea2a2a564dfb26eab8bd351f7492a7921fbb87d82fc87ba010ca23cfb336a",
+          "sha256": "10cb36289f887a6f9622bd3777c1adba260865df0331c85373eafc061d37f10e",
+          "sha1": "bef06224e0932356ebd4ac7634079f89d60e05f4",
+          "md5": "015cc8c1c9728ccb0938aa20474f0fe6"
+        }
+      ]
+    }
+  ]
+}

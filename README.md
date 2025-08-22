@@ -2,54 +2,152 @@
 
 This repository contains the Mastering Liferay Assets and Content course materials.
 
-## Table of Contents
+## Course Setup Instructions
 
-- [Bundle Preparation](#bundle-preparation)
-- [Starting and Stopping the Bundle](#starting-and-stopping-the-bundle)
+Liferay's Course Launcher tool automatically prepares your system and sets up a dedicated workspace for course exercises. Use this tool to streamline course environment setup — with **no technical expertise required**.
 
-## Bundle Preparation
+This tool:
 
-To prepare your local Liferay bundle, you need to use the Blade CLI tool. The Blade CLI provides a convenient way to manage Liferay projects and bundles. Follow the steps below to set up your local environment:
+* Checks if Java 21 is installed in your system. If not, it installs Zulu JRE 21 from Azul.
+* Downloads and configures the course workspace.
+* Initializes the local Liferay DXP bundle.
 
-1. **Ensure Blade CLI is Installed**: Make sure you have the Blade CLI installed on your system. If not, you can download it from the [Liferay Blade CLI GitHub page](https://github.com/liferay/liferay-blade-cli).
+### Table of Contents
 
-2. **Navigate to Your Project Directory**: Open a terminal and navigate to the root directory from the cloned repository.
+* [Setting Up the Clarity Workspace](#setting-up-the-clarity-workspace)
+* [Manual Setup (Optional)](#manual-setup-optional)
 
-3. **Run the Initialization Command**: Execute the following command to initialize your local Liferay bundle:
-   ```
-   blade gw initBundle
-   ```
+### Setting Up the Clarity Workspace
 
-   This command will prepare the Liferay bundle and make it available in the `bundles` directory of your project.
+Here, you'll execute the course launcher tool to prepare your system and set up the Clarity workspace you'll use in course exercises.
 
-4. **Verify the Bundle**: Once the command completes, check the `bundles` directory to ensure that the Liferay bundle has been set up correctly.
+1. Open your terminal and run this command according to your operating system:
 
-By following these steps, you will have a local Liferay bundle ready for development and testing purposes. This setup is essential for running and deploying your Liferay modules effectively.
+   **Linux/Unix**:
 
-
-## Starting and Stopping the Bundle
-
-Once you have prepared your Liferay bundle, you can start and stop it using the Blade CLI tool. Follow the steps below to manage your bundle:
-
-1. **Start the Bundle**: To start your Liferay bundle, execute the following command in your terminal:
-   ```
-   blade server start
+   ```bash
+   /bin/bash -c "$(curl -fsSL https://raw.github.com/liferay/liferay-enablement-script-library/main/content-manager-course-setup.sh)" -- --assets-and-content linux
    ```
 
-   This command will start the Liferay server, making it accessible for development and testing.
-
-2. **Access the Environment**: After starting the bundle, open a web browser and navigate to [http://localhost:8080](http://localhost:8080). Use the following credentials to log in:
-   - **Username**: admin@clarityvisionsolutions.com
-   - **Password**: learn
-
-   This will give you access to the Liferay environment where you can deploy and test your modules.
-
-3. **Stop the Bundle**: When you are done working with the Liferay bundle, you can stop the server by executing the following command:
-   ```
-   blade server stop
+   **Mac**:
+   ```bash
+   /bin/bash -c "$(curl -fsSL https://raw.github.com/liferay/liferay-enablement-script-library/main/content-manager-course-setup.sh)" -- --assets-and-content mac
    ```
 
-   This command will stop the Liferay server, freeing up system resources.
+   **Windows**:
+   ```bash
+   powershell Set-ExecutionPolicy Bypass -Scope Process -Force; iex "& { $(irm https://raw.githubusercontent.com/liferay/liferay-enablement-script-library/refs/heads/main/content-manager-course-setup.ps1); install-course --assets-and-content }"
+   ```
 
-By following these steps, you can effectively manage the lifecycle of your Liferay bundle, ensuring a smooth development and testing process.
+   This executes the course launcher tool, which automatically checks for and installs Java JDK 21, downloads the course's files, and prepares the Liferay DXP bundle.
 
+> [!NOTE]
+> The full process may take a few minutes to complete.
+
+2. Once the "Liferay bundle initialized" message displays, verify the `liferay-course-assets-and-content/` folder was created.
+
+1. Go to the workspace's root folder in your terminal:
+
+   ```bash
+   cd liferay-course-assets-and-content/
+   ```
+
+1. Run this command to start the Liferay server:
+
+   **Unix-based**:
+
+   ```bash
+   ./bundles/tomcat/bin/startup.sh
+   ```
+
+   **Windows**:
+
+   ```bash
+   .\bundles\tomcat\bin\startup.bat
+   ```
+
+1. Verify the “Tomcat started“ message displays.
+
+   This indicates that the server has initiated its startup process in the background.
+
+1. Access your Liferay DXP instance by going to [localhost:8080](http://localhost:8080) in your browser.
+
+> [!NOTE]
+> Server startup may take a few minutes to complete.
+
+7. Sign in using these credentials:
+
+   * Username: `admin@clarityvisionsolutions.com`
+   * Password: `learn`
+
+1. Open the *Global Menu*, go to the *Control Panel* tab, and click *Search*.
+
+1. Go to the *Index Actions* tab and click *Reindex for All Search Indexes*.
+
+1. When prompted, click *Execute* to confirm.
+
+1. Take some time to explore the site and resources included in the training workspace.
+
+> [!NOTE]
+> To shutdown your Liferay server, run this command in your terminal:
+>
+> **Unix-based**:
+>
+> ```bash
+> ./bundles/tomcat/bin/shutdown.sh
+> ```
+>
+> **Windows**:
+>
+> ```bash
+> .\bundles\tomcat\bin\shutdown.bat
+> ```
+
+Great! With your environment set up, you’re ready to start contributing to Clarity’s applications.
+
+### Manual Setup (Optional)
+
+Alternatively, you can set up your course environment manually.
+
+> [!NOTE]
+> This process involves more technical steps. If you're using a company system, you may need to contact your company's IT support.
+
+1. Ensure your system satisfies the following prerequisites:
+
+   * Git ([macOS](https://git-scm.com/download/mac) | [Windows](https://git-scm.com/download/win) | [Linux/Unix](https://git-scm.com/download/linux))
+   * Java JDK 21 ([macOS](https://learn.microsoft.com/en-us/java/openjdk/install#install-on-macos) | [Windows](https://learn.microsoft.com/en-us/java/openjdk/install#install-on-windows) | [Linux](https://learn.microsoft.com/en-us/java/openjdk/install#install-on-ubuntu))
+
+1. Open your terminal and clone the training workspace to your computer:
+
+   ```bash
+   git clone https://github.com/liferay/liferay-course-assets-and-content
+   ```
+
+   This saves a copy of the project in your current terminal directory.
+
+> [!NOTE]
+> If you've cloned the repo previously, ensure your workspace is up to date by running `git pull origin main`.
+
+3. Go to the workspace's root folder in your terminal:
+
+   ```bash
+   cd liferay-course-assets-and-content
+   ```
+
+1. Initialize your Liferay bundle.
+
+   **Unix-based**:
+
+   ```bash
+   ./gradlew initBundle
+   ```
+
+   **Windows**:
+
+   ```bash
+   .\gradlew.bat initBundle
+   ```
+
+   This downloads and builds dependencies for running Liferay, including the Liferay Tomcat server.
+
+1. Follow steps 3-9 of the [previous section](#setting-up-the-clarity-workspace).
